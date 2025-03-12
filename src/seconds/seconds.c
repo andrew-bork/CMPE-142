@@ -12,7 +12,7 @@
 
 ssize_t proc_read(struct file *file, char __user *usr_buf,size_t count, loff_t *pos);
 static struct proc_ops proc_ops_ = {
-.read = proc_read,
+.proc_read = proc_read,
 };
 
 /* This function is called when the module is loaded. */
