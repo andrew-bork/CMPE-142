@@ -11,15 +11,24 @@
 #define PROC_NAME "jiffies"
 
 ssize_t proc_read(struct file *file, char __user *usr_buf,size_t count, loff_t *pos);
-static struct file_operations proc_ops = {
+static struct file_operations proc_ops_ = {
 .owner = THIS_MODULE,
 .read = proc_read,
 };
 
+
+
+// static const struct proc_ops proc_ops_ = {
+//     // .proc_open = skynet_open,
+//     .proc_read = seq_read,
+//     // .proc_lseek = seq_lseek,
+//     // .proc_release = single_release,
+//   };
 /* This function is called when the module is loaded. */
 int proc_init(void) {
     /* creates the /proc/hello entry */
-    proc_create(PROC_NAME, 0666, NULL, &proc_ops);
+    // proc_create(PROC_NAME, 0666, NULL, &proc_ops_);
+    proc_create_single(PROC_NAME, 0666, NULL, proc_read);
     return 0;
 }
 
