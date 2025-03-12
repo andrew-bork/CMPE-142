@@ -20,7 +20,7 @@ ssize_t proc_read(struct file *file, char __user *usr_buf,size_t count, loff_t *
 
 static const struct proc_ops proc_ops_ = {
     // .proc_open = skynet_open,
-    .read = proc_read,
+    .proc_read = proc_read,
     // .proc_lseek = seq_lseek,
     // .proc_release = single_release,
   };
