@@ -39,7 +39,7 @@ void proc_exit(void) {
 }
 
 /* This function is called each time /proc/hello is read */
-ssize_t jiffy_read(struct FILE *file, char __user *usr_buf, size_t count, loff_t *pos) {
+ssize_t jiffy_read(struct file *file, char __user *usr_buf, size_t count, loff_t *pos) {
     int rv = 0;
     char buffer[BUFFER_SIZE];
     static int completed = 0;
