@@ -14,7 +14,7 @@ int simple_init(void) {
 
     printk(KERN_INFO "%lu\n", GOLDEN_RATIO_PRIME);
 
-    printf(KERN_INFO, "Jiffies: %lu\t\tHZ: %lu\n", jiffies, HZ);
+    printk(KERN_INFO, "Jiffies: %lu\t\tHZ: %lu\n", jiffies, HZ);
 
     return 0;
 }
