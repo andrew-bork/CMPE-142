@@ -11,10 +11,10 @@
 #define PROC_NAME "jiffies"
 
 ssize_t proc_read(struct file *file, char __user *usr_buf,size_t count, loff_t *pos);
-static struct file_operations proc_ops_ = {
-.owner = THIS_MODULE,
-.read = proc_read,
-};
+// static struct file_operations proc_ops_ = {
+// .owner = THIS_MODULE,
+// .read = proc_read,
+// };
 
 
 
