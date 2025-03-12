@@ -1,16 +1,12 @@
 
 .PHONY: clean all
 
-obj-m += dvt-driver.o
+obj-m += jiffies.o seconds.o simple.o
 
 all: bin/file_copy
-    make -C /lib/modules/$(shell uname -r)/build M=$(PWD)/src/seconds modules
-    make -C /lib/modules/$(shell uname -r)/build M=$(PWD)/src/jiffies_proc modules
-    make -C /lib/modules/$(shell uname -r)/build M=$(PWD)/src/simple modules
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD)/src modules
 clean:
-    make -C /lib/modules/$(shell uname -r)/build M=$(PWD)/src/seconds clean
-    make -C /lib/modules/$(shell uname -r)/build M=$(PWD)/src/jiffies_proc clean
-    make -C /lib/modules/$(shell uname -r)/build M=$(PWD)/src/simple clean
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD)/src clean
 bin:
 	mkdir bin
 
