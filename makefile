@@ -4,7 +4,9 @@
 obj-m += jiffies.o seconds.o simple.o
 
 all: bin/file_copy
-    make -C /lib/modules/$(shell uname -r)/build M=$(PWD)/src modules
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD)/src/jiffies_proc modules
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD)/src/simple modules
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD)/src/seconds modules
 clean:
     make -C /lib/modules/$(shell uname -r)/build M=$(PWD)/src clean
 bin:
