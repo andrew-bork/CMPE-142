@@ -1,6 +1,3 @@
-
-.PHONY: clean all
-
 obj-m += jiffies.o
 
 all:
