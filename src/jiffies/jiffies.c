@@ -20,7 +20,7 @@ ssize_t proc_read(struct file *file, char __user *usr_buf,size_t count, loff_t *
 
 static const struct proc_ops proc_ops_ = {
     // .proc_open = skynet_open,
-    .proc_read = proc_read,
+    .proc_read = jiffy_read,
     // .proc_lseek = seq_lseek,
     // .proc_release = single_release,
   };
@@ -39,7 +39,7 @@ void proc_exit(void) {
 }
 
 /* This function is called each time /proc/hello is read */
-ssize_t proc_read(struct FILE *file, char __user *usr_buf, size_t count, loff_t *pos) {
+ssize_t jiffy_read(struct FILE *file, char __user *usr_buf, size_t count, loff_t *pos) {
     int rv = 0;
     char buffer[BUFFER_SIZE];
     static int completed = 0;
