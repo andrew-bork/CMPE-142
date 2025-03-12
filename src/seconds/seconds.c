@@ -11,15 +11,16 @@
 #define PROC_NAME "seconds"
 
 ssize_t proc_read(struct file *file, char __user *usr_buf,size_t count, loff_t *pos);
-static struct file_operations proc_ops = {
-.owner = THIS_MODULE,
+static struct proc_ops proc_ops_ = {
 .read = proc_read,
 };
 
 /* This function is called when the module is loaded. */
 int proc_init(void) {
     /* creates the /proc/hello entry */
-    proc_create(PROC_NAME, 0666, NULL, &proc_ops);
+    proc_create(PROC_NAME, 0666, NULL, &proc_ops_);
+    printk(KERN_INFO “Loaded seconds Module\n”);
+
     return 0;
 }
 

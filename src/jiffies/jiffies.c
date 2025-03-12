@@ -28,6 +28,7 @@ static const struct proc_ops proc_ops_ = {
 int proc_init(void) {
     /* creates the /proc/hello entry */
     proc_create(PROC_NAME, 0666, NULL, &proc_ops_);
+    printk(KERN_INFO “Loaded jiffies Module\n”);
     // proc_create_single(PROC_NAME, 0666, NULL, proc_read);
     return 0;
 }
