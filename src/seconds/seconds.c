@@ -44,10 +44,10 @@ ssize_t proc_read(struct file *file, char __user *usr_buf, size_t count, loff_t 
     // Calculate the number of seconds. 
     // Jiffies is the number of timer interrupts that have occured since boot.
     // HZ is the number of timer interrupts per second.
-    float seconds = ((float) jiffies) / HZ;
+    unsigned long seconds = (((unsigned long) jiffies) / HZ;
  
     // Convert uptime to string.
-    rv = sprintf(buffer, "%f\n", seconds);
+    rv = sprintf(buffer, "%lu\n", seconds);
     
     /* copies kernel space buffer to user space usr_buf */
     copy_to_user(usr_buf, buffer, rv);
