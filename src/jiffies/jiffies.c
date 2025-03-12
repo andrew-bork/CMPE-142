@@ -18,17 +18,17 @@ static struct file_operations proc_ops_ = {
 
 
 
-// static const struct proc_ops proc_ops_ = {
-//     // .proc_open = skynet_open,
-//     .proc_read = seq_read,
-//     // .proc_lseek = seq_lseek,
-//     // .proc_release = single_release,
-//   };
+static const struct proc_ops proc_ops_ = {
+    // .proc_open = skynet_open,
+    .read = seq_read,
+    // .proc_lseek = seq_lseek,
+    // .proc_release = single_release,
+  };
 /* This function is called when the module is loaded. */
 int proc_init(void) {
     /* creates the /proc/hello entry */
-    // proc_create(PROC_NAME, 0666, NULL, &proc_ops_);
-    proc_create_single(PROC_NAME, 0666, NULL, proc_read);
+    proc_create(PROC_NAME, 0666, NULL, &proc_ops_);
+    // proc_create_single(PROC_NAME, 0666, NULL, proc_read);
     return 0;
 }
 
@@ -39,7 +39,7 @@ void proc_exit(void) {
 }
 
 /* This function is called each time /proc/hello is read */
-ssize_t proc_read(struct file *file, char __user *usr_buf, size_t count, loff_t *pos) {
+ssize_t proc_read(struct FILE *file, char __user *usr_buf, size_t count, loff_t *pos) {
     int rv = 0;
     char buffer[BUFFER_SIZE];
     static int completed = 0;
