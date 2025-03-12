@@ -10,7 +10,7 @@
 
 /* This function is called when the module is loaded. */
 int simple_init(void) {
-    printk(KERN_INFO “Loading Kernel Module\n”);
+    printk(KERN_INFO "Loading Kernel Module\n");
 
     printk(KERN_INFO "%lu\n", GOLDEN_RATIO_PRIME);
 
@@ -21,7 +21,7 @@ int simple_init(void) {
 
 /* This function is called when the module is removed. */
 void simple_exit(void) {
-    printk(KERN_INFO “Removing Kernel Module\n”);
+    printk(KERN_INFO "Removing Kernel Module\n");
 
     unsigned long result = gcd(3300, 24);
     printk(KERN_INFO "gcd(3300, 24) = %lu\n", result);
