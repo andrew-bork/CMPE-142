@@ -8,6 +8,10 @@
 #include <asm/param.h>
 #include <linux/jiffies.h>
 
+/**
+ * THIS WORKS
+ */
+
 /* This function is called when the module is loaded. */
 int simple_init(void) {
     printk(KERN_INFO "Loading Kernel Module\n");
