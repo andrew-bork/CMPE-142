@@ -18,7 +18,7 @@ int simple_init(void) {
 
     printk(KERN_INFO "%lu\n", GOLDEN_RATIO_PRIME);
 
-    printk(KERN_INFO, "Jiffies: %lu\t\tHZ: %lu\n", jiffies, HZ);
+    printk(KERN_INFO "Jiffies: %lu\t\tHZ: %lu\n", jiffies, HZ);
 
     return 0;
 }
@@ -29,7 +29,7 @@ void simple_exit(void) {
 
     unsigned long result = gcd(3300, 24);
     printk(KERN_INFO "gcd(3300, 24) = %lu\n", result);
-    printk(KERN_INFO, "Jiffies: %lu\n", jiffies);
+    printk(KERN_INFO "Jiffies: %lu\n", jiffies);
 
 
     
